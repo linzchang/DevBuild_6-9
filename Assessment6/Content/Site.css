@@ -22,3 +22,10 @@ select,
 textarea {
     max-width: 280px;
 }
+#dishname, #description, #first, #last, #date, #plusOne, #plusOneInfo, #farewell{
+    display: none;
+}
+.hide {
+    display: none;
+}
+
