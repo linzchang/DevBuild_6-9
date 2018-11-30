@@ -1,0 +1,59 @@
+﻿@model Assessment6.Models.Guest
+
+@{
+    ViewBag.Title = "RSVP";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>RSVP</h2>
+
+@using (Html.BeginForm("RSVP_Confirmation", "Home", FormMethod.Post))
+{
+    @Html.AntiForgeryToken();
+    @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+
+    <fieldset class="mt-4">
+        <legend class="w-auto">Details</legend>
+        <div class="form-group">
+            <label class='control-label'>First Name</label>
+            @Html.TextBoxFor(model => model.FirstName, new { @class = "form-control", type = "text", required = "required", placeholder = "Enter First Name" })
+        </div>
+        <div class="form-group">
+            <label class='control-label'>Last Name</label>
+            @Html.TextBoxFor(model => model.LastName, new { @class = "form-control", type = "text", required = "required", placeholder = "Enter Last Name" })
+        </div>
+        <div class="form-group">
+            <label class='control-label'>Email</label>
+            @Html.TextBoxFor(model => model.Email, new { @class = "form-control", type = "email", required = "required", placeholder = "Enter Email" })
+        </div>
+        <div class="form-group">
+            <label class='control-label'>Will you be attending?</label>
+            <p>
+                Yes
+                @Html.RadioButtonFor(model => model.Attending, "Yes")
+                No
+                @Html.RadioButtonFor(model => model.Attending, "No")
+            </p>   
+        </div>
+        <div class="form-group">
+            <label class='control-label'>Will you be bringing a plus one?</label>
+            <p>
+                Yes
+                @Html.RadioButtonFor(model => model.PlusOne, "Yes")
+                No
+                @Html.RadioButtonFor(model => model.PlusOne, "No")
+            </p>
+        </div>
+        <div class="form-group" id="plusOne">
+            <label class='control-label'>Plus One Information</label>
+            @Html.TextBoxFor(model => model.PlusOneInfo, new { @class = "form-control", type = "text", placeholder = "Enter Your Guest's Name" })
+        </div>
+    </fieldset>
+    <br />
+    @*<div>
+        <p class="text-muted">Note: Fields noted with an asterisk are required</p>
+    </div>*@
+
+    <input type="submit" value="RSVP" class="btn btn-info btn-lg" id="RSVP_submit" />
+}
+
