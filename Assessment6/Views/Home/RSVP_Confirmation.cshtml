@@ -1,0 +1,15 @@
+﻿@model Assessment6.Models.Guest
+
+@{
+    ViewBag.Title = "RSVP_Confirmation";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>RSVP Confirmation</h2>
+
+<p>Thank you for RSVPing @Model.FirstName @Model.LastName!</p>
+<p>We can't wait to see you on @Model.PartyDate!</p>
+<p>We will send an email to @Model.Email with more details.</p>
+<p id="guestYes">We have noted that you are bringing @Model.PlusOneInfo as your plus one.</p>
+<p id="guestNo">We have noted that you are not bringing a guest.</p>
+
