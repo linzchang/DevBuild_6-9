@@ -7,7 +7,7 @@
 
 <h2>RSVP</h2>
 
-@using (Html.BeginForm("RSVP_Confirmation", "Home", FormMethod.Post))
+@using (Html.BeginForm("RSVP_Confirmation", "Home", FormMethod.Post, new { @id = "RSVPform" }))
 {
     @Html.AntiForgeryToken();
     @Html.ValidationSummary(false, "", new { @class = "text-danger" })
@@ -43,10 +43,12 @@
     <div class="form-group">
         <label class='control-label'>Will you be attending?</label>
         <p>
+            @Html.RadioButtonFor(model => model.Attending, "Yes", new { @class = "attending" })
             Yes
-            @Html.RadioButtonFor(model => model.Attending, "Yes", new { @class="attending"})
+        </p>
+        <p>
+            @Html.RadioButtonFor(model => model.Attending, "No", new { @class = "attending" })
             No
-            @Html.RadioButtonFor(model => model.Attending, "No", new { @class="attending" })
         </p>
     </div>
     <div id="farewell">

@@ -29,3 +29,27 @@ textarea {
     display: none;
 }
 
+.jumbotron-custom {
+    background-image: url('../Images/party.jpg') !important;
+    background-size: cover;
+}
+
+.parallax {
+    /* The image used */
+    background-image: url('../Images/party.jpg') !important;
+    /* Set a specific height */
+    height: 500px;
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
+}
+
+@media only screen and (max-device-width: 1366px) {
+    .parallax {
+        background-attachment: scroll;
+    }
+}
+

@@ -1,5 +1,6 @@
 ﻿$(document).ready(function () {
 
+    //SIMPLIFY THESE 2 METHODS
     $('#firstName').keyup(function () {
         var name = $(this).val();
         //check entry length
@@ -38,7 +39,8 @@
         $('#last').show();
     }).blur(function () {
         $('#last').hide();
-    });
+        });
+
 
     $('.attending').change(function () {
         var attending = $(this).val();
@@ -57,10 +59,8 @@
         var plusOne = $(this).val();
         if (plusOne === 'Yes') {
             $('#plusOneInfo').show();
-            $('#guestNo').addClass('.hide');
         } else {
             $('#plusOneInfo').hide();
-            $('#guestYes').addClass('.hide');
         }
     });
     
