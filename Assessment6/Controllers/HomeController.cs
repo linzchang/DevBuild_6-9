@@ -21,11 +21,22 @@ namespace Assessment6.Controllers
 
         public ActionResult RSVP_Confirmation(Guest guest)
         {
+            PartyDbEntities ORM = new PartyDbEntities();
+
+            if (guest.FirstName != null)
+            {
+                ORM.Guests.Add(guest);
+                ORM.SaveChanges();
+            }
+
             return View(guest);
         }
 
         public ActionResult Dish()
         {
+            PartyDbEntities ORM = new PartyDbEntities();
+            ViewBag.DishList = ORM.Dishes.ToList();
+
             return View();
         }
 

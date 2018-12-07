@@ -1,73 +1,41 @@
 ﻿@model Assessment6.Models.Dish
 
 @{
-    ViewBag.Title = "Dish";
+    ViewBag.Title = "Dishes";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Dish Information</h2>
 
-@using (Html.BeginForm("Dish_Confirmation", "Home", FormMethod.Post))
-{
-    @Html.AntiForgeryToken();
-    @Html.ValidationSummary(false, "", new { @class = "text-danger" })
-
-<fieldset class="mt-4">
-    <legend class="w-auto">Dish Details</legend>
-    <div class="form-group">
-        <label class='control-label'>Guest Name</label>
-        @Html.TextBoxFor(model => model.GuestName, new { @class = "form-control", type = "text", required = "required", placeholder = "Enter Guest Name" })
-    </div>
-    <div class="form-group required">
-        <label class='control-label'>Phone Number</label>
-        @Html.TextBoxFor(model => model.PhoneNumber, new { @class = "form-control", id = "phone", type = "tel", required = "required", placeholder = "Enter Phone Number" })
-        <p id="phoneAlert" class="text-danger"></p>
-    </div>
-    <div class="form-group">
-        <label class='control-label'>Dish Name</label>
-        @Html.TextBoxFor(model => model.DishName, new { @class = "form-control", type = "text", required = "required", id = "dish", placeholder = "Enter Dish Name" })
-    </div>
-    <div id="dishname">
-        <p>Entry must meet the following requirements:</p>
-        <ul>
-            <li id="length" class="text-danger">At least one letter</li>
-            <li id="number" class="text-danger">Contains no numbers</li>
-        </ul>
-    </div>
-    <div class="form-group">
-        <label class='control-label'>Dish Description</label>
-        @Html.TextBoxFor(model => model.Description, new { @class = "form-control", type = "text", required = "required", id="dishDescription", placeholder = "Enter Dish Description" })
-    </div>
-    <div id="description">
-        <p>Entry must meet the following requirements:</p>
-        <ul>
-            <li id="dlength" class="text-danger">At least 10 letters</li>
-            <li id="dnumber" class="text-danger">Contains no numbers</li>
-        </ul>
-    </div>
-    <div class="form-group">
-        <label class='control-label'>Please select a category for your dish:</label>
-        <p>
-            @Html.RadioButtonFor(model => model.Category, "Gluten Free")
-            Gluten Free
-        </p>
-        <p>
-            @Html.RadioButtonFor(model => model.Category, "Vegan")
-            Vegan
-        </p>
-        <p>
-            @Html.RadioButtonFor(model => model.Category, "Vegetarian")
-            Vegetarian
-        </p>
-        <p>
-            @Html.RadioButtonFor(model => model.Category, "N/A")
-            N/A
-        </p>
-    </div>
-</fieldset>
+<div class="table-header container">
+    <p class="text-center">Available Dishes</p>
     <br />
+    <div>
+        <table class="table table-hover">
+            <tr class="table-header">
+                <th scope="col">Dish Name</th>
+                <th scope="col">Description</th>
+                <th scope="col">Category</th>
+                <th scope="col">Guest Name</th>
+                <th scope="col">Phone Number</th>
+                <th scope="col">Edit Dish</th>
+                <th scope="col">Delete Dish</th>
+            </tr>
+            @foreach (var dish in ViewBag.DishList)
+            {
+                <tr scope="row" class="table-row">
+                    <td>@dish.DishName</td>
+                    <td>@dish.Description</td>
+                    <td>@dish.Category</td>
+                    <td>@dish.GuestName</td>
+                    <td>@dish.PhoneNumber</td>
+                    <td><a href="~/Dish/EditDish?DishID=@dish.DishID">Edit this Dish</a></td>
+                    <td><a href="~/Dish/DeleteDish?DishID=@dish.DishID">Delete this Dish</a></td>
+                </tr>
+            }
+        </table>
+    </div>
 
-    <input type="submit" value="Submit Dish Info" class="btn btn-info btn-lg" id="dish_submit" />
-}
 
-    <script type="text/javascript" src="~/Scripts/Dish.js"></script>
+    <br />
+    <a class="btn btn-default" href="~/Dish/AddDish">Add a Dish to the Menu</a>
+</div>

@@ -1,6 +1,8 @@
 ﻿body {
-    padding-top: 50px;
     padding-bottom: 20px;
+    background-image: url('../Images/party.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -20,23 +22,31 @@
 input,
 select,
 textarea {
-    max-width: 280px;
-}
-#dishname, #description, #first, #last, #date, #plusOne, #plusOneInfo, #farewell{
-    display: none;
-}
-.hide {
-    display: none;
+    max-width: 90%;
 }
 
+/* Show which fields are required */
+.form-group.required .control-label:after {
+    content: "*";
+    color: red;
+}
+
+/*.itemImage {
+    height: auto;
+    width: auto;
+    max-width: 50px;
+    max-height: 50px;
+}*/
+
 .jumbotron-custom {
-    background-image: url('../Images/party.jpg') !important;
+    background-image: url('../Images/balloons.jpg') !important;
     background-size: cover;
+    margin-top: 10px;
 }
 
 .parallax {
     /* The image used */
-    background-image: url('../Images/party.jpg') !important;
+    background-image: url('../Images/balloons.jpg') !important;
     /* Set a specific height */
     height: 500px;
     /* Create the parallax scrolling effect */
@@ -52,4 +62,30 @@ textarea {
         background-attachment: scroll;
     }
 }
+
+#dishname, #description, #first, #last, #date, #plusOne, #plusOneInfo, #farewell{
+    display: none;
+}
+
+.hide {
+    display: none;
+}
+
+.table-header {
+    background-color: #B5CAC9;
+    padding-bottom: 20px;
+}
+
+.table-row {
+    background-color: #D0DBDB;
+}
+
+.box {
+    padding: 5px;
+    border-radius: 4px;
+    background-color: #D0DBDB;
+    margin: 10px;
+}
+
+
 

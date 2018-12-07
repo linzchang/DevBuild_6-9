@@ -5,82 +5,90 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>RSVP</h2>
+<div class="table-header container">
+    <h2>RSVP</h2>
 
-@using (Html.BeginForm("RSVP_Confirmation", "Home", FormMethod.Post, new { @id = "RSVPform" }))
-{
-    @Html.AntiForgeryToken();
-    @Html.ValidationSummary(false, "", new { @class = "text-danger" })
 
-<fieldset class="mt-4">
-    <legend class="w-auto">Details</legend>
-    <div class="form-group">
-        <label class='control-label'>First Name</label>
-        @Html.TextBoxFor(model => model.FirstName, new { @class = "form-control", type = "text", required = "required", id = "firstName", placeholder = "Enter First Name" })
-    </div>
-    <div id="first">
-        <p>Entry must meet the following requirements:</p>
-        <ul>
-            <li id="length" class="text-danger">At least one letter</li>
-            <li id="number" class="text-danger">Contains no numbers</li>
-        </ul>
-    </div>
-    <div class="form-group">
-        <label class='control-label'>Last Name</label>
-        @Html.TextBoxFor(model => model.LastName, new { @class = "form-control", type = "text", required = "required", id = "lastName", placeholder = "Enter Last Name" })
-    </div>
-    <div id="last">
-        <p>Entry must meet the following requirements:</p>
-        <ul>
-            <li id="lastlength" class="text-danger">At least one letter</li>
-            <li id="lastnumber" class="text-danger">Contains no numbers</li>
-        </ul>
-    </div>
-    <div class="form-group">
-        <label class='control-label'>Email</label>
-        @Html.TextBoxFor(model => model.Email, new { @class = "form-control", type = "email", required = "required", placeholder = "Enter Email" })
-    </div>
-    <div class="form-group">
-        <label class='control-label'>Will you be attending?</label>
-        <p>
-            @Html.RadioButtonFor(model => model.Attending, "Yes", new { @class = "attending" })
-            Yes
-        </p>
-        <p>
-            @Html.RadioButtonFor(model => model.Attending, "No", new { @class = "attending" })
-            No
-        </p>
-    </div>
-    <div id="farewell">
-        <p>Sorry you can't come!</p>
-    </div>
-    <div id="date">
-        <label class='control-label'>Which date can you attend?</label>
-        <p>
-            Dec 12th
-            @Html.RadioButtonFor(model => model.PartyDate, "Dec 12th")
-            Dec 18th
-            @Html.RadioButtonFor(model => model.PartyDate, "Dec 18th")
-        </p>
-    </div>
-    <div class="form-group" id="plusOne">
-        <label class='control-label'>Will you be bringing a plus one?</label>
-        <p>
-            Yes
-            @Html.RadioButtonFor(model => model.PlusOne, "Yes", new { @class = "guest" })
-            No
-            @Html.RadioButtonFor(model => model.PlusOne, "No", new { @class = "guest" })
-        </p>
-    </div>
-    <div class="form-group" id="plusOneInfo">
-        <label class='control-label'>Plus One Information</label>
-        @Html.TextBoxFor(model => model.PlusOneInfo, new { @class = "form-control", type = "text", placeholder = "Enter Your Guest's Name" })
-    </div>
-</fieldset>
-    <br />
+    @using (Html.BeginForm("RSVP_Confirmation", "Home", FormMethod.Post, new { @id = "RSVPform" }))
+    {
+        @Html.AntiForgeryToken();
+        @Html.ValidationSummary(false, "", new { @class = "text-danger" })
 
-    <input type="submit" value="RSVP" class="btn btn-info btn-lg" id="RSVP_submit" />
-}
+        <fieldset class="mt-4">
+            <div class="form-group">
+                @Html.TextBoxFor(model => model.GuestID, new { @class = "form-control", type = "hidden" })
+            </div>
+            <legend class="w-auto">Details</legend>
+            <div class="form-group">
+                <label class='control-label'>First Name</label>
+                @Html.TextBoxFor(model => model.FirstName, new { @class = "form-control", type = "text", required = "required", id = "firstName", placeholder = "Enter First Name" })
+            </div>
+            <div id="first">
+                <p>Entry must meet the following requirements:</p>
+                <ul>
+                    <li id="length" class="text-danger">At least one letter</li>
+                    <li id="number" class="text-danger">Contains no numbers</li>
+                </ul>
+            </div>
+            <div class="form-group">
+                <label class='control-label'>Last Name</label>
+                @Html.TextBoxFor(model => model.LastName, new { @class = "form-control", type = "text", required = "required", id = "lastName", placeholder = "Enter Last Name" })
+            </div>
+            <div id="last">
+                <p>Entry must meet the following requirements:</p>
+                <ul>
+                    <li id="lastlength" class="text-danger">At least one letter</li>
+                    <li id="lastnumber" class="text-danger">Contains no numbers</li>
+                </ul>
+            </div>
+            <div class="form-group">
+                <label class='control-label'>Email</label>
+                @Html.TextBoxFor(model => model.Email, new { @class = "form-control", type = "email", required = "required", placeholder = "Enter Email" })
+            </div>
+            <div class="form-group">
+                <label class='control-label'>Will you be attending?</label>
+                <p>
+                    @Html.RadioButtonFor(model => model.Attending, "Yes", new { @class = "attending" })
+                    Yes
+                </p>
+                <p>
+                    @Html.RadioButtonFor(model => model.Attending, "No", new { @class = "attending" })
+                    No
+                </p>
+            </div>
+            <div id="farewell">
+                <p>Sorry you can't come!</p>
+            </div>
+            <div id="date">
+                <label class='control-label'>Which date can you attend?</label>
+                <p>
+                    Fri Dec 21th
+                    @Html.RadioButtonFor(model => model.PartyDate, "Fri Dec 21th")
+                    Sat Dec 29th
+                    @Html.RadioButtonFor(model => model.PartyDate, "Sat Dec 29th")
+                </p>
+            </div>
+            <div class="form-group" id="plusOne">
+                <label class='control-label'>Will you be bringing a plus one?</label>
+                <p>
+                    Yes
+                    @Html.RadioButtonFor(model => model.PlusOne, "Yes", new { @class = "guest" })
+                    No
+                    @Html.RadioButtonFor(model => model.PlusOne, "No", new { @class = "guest" })
+                </p>
+            </div>
+            <div class="form-group" id="plusOneInfo">
+                <label class='control-label'>Plus One Name</label>
+                @Html.TextBoxFor(model => model.PlusOneName, new { @class = "form-control", type = "text", placeholder = "Enter Your Guest's Name" })
+            </div>
+        </fieldset>
+        <br />
+
+        <input type="submit" value="RSVP" class="btn btn-info btn-lg" id="RSVP_submit" />
+    }
+    </div>
+
+
 
     <script type="text/javascript" src="~/Scripts/RSVP.js"></script>
 

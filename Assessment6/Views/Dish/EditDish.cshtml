@@ -1,0 +1,56 @@
+﻿@model Assessment6.Models.Dish
+
+@{
+
+    ViewBag.Title = "Edit Dish";
+}
+<div class="table-header container">
+    <h2>Edit Dish</h2>
+
+    @using (Html.BeginForm("SaveDishChanges", "Dish", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken();
+        @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+
+        <div class="form-group">
+            @Html.TextBoxFor(model => model.DishID, new { @class = "form-control", type = "hidden", value = @Model.DishID })
+        </div>
+        <div class="form-group">
+            <label class='control-label'>Dish Name</label>
+            @Html.TextBoxFor(model => model.DishName, new { @class = "form-control", type = "text", placeholder = "Enter Dish Name", value = @Model.DishName })
+        </div>
+        <div class="form-group">
+            <label class='control-label'>Description</label>
+            @Html.TextBoxFor(model => model.Description, new { @class = "form-control", type = "text", placeholder = "Enter Description", value = @Model.Description })
+        </div>
+        <div class="form-group">
+            <label class='control-label'>Please select a category for your dish:</label>
+            <p>
+                @Html.RadioButtonFor(model => model.Category, "Gluten Free")
+                Gluten Free
+            </p>
+            <p>
+                @Html.RadioButtonFor(model => model.Category, "Vegan")
+                Vegan
+            </p>
+            <p>
+                @Html.RadioButtonFor(model => model.Category, "Vegetarian")
+                Vegetarian
+            </p>
+            <p>
+                @Html.RadioButtonFor(model => model.Category, "N/A")
+                N/A
+            </p>
+        </div>
+        <div class="form-group">
+            <label class='control-label'>Guest Name</label>
+            @Html.TextBoxFor(model => model.GuestName, new { @class = "form-control", type = "text", placeholder = "Enter Guest Name", value = @Model.GuestName })
+        </div>
+        <div class="form-group">
+            <label class='control-label'>Phone Number</label>
+            @Html.TextBoxFor(model => model.PhoneNumber, new { @class = "form-control", type = "text", placeholder = "Enter Phone Number", value = @Model.PhoneNumber })
+        </div>
+        <input type="submit" class="btn btn-secondary btn-lg" value="Submit" />
+    }
+    </div>
+

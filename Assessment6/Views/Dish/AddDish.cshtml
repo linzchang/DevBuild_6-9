@@ -1,0 +1,81 @@
+﻿@model Assessment6.Models.Dish
+
+@{
+    ViewBag.Title = "Add Dish";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="table-header container">
+    <h2>Add a Dish</h2>
+
+    @using (Html.BeginForm("SaveNewDish", "Dish", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken();
+        @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+
+        <fieldset class="mt-4">
+            <div class="form-group">
+                @Html.TextBoxFor(model => model.DishID, new { @class = "form-control", type = "hidden" })
+            </div>
+            <legend class="w-auto">Dish Details</legend>
+            <div class="form-group">
+                <label class='control-label'>Guest Name</label>
+                @Html.TextBoxFor(model => model.GuestName, new { @class = "form-control", type = "text", required = "required", placeholder = "Enter Guest Name" })
+            </div>
+            <div class="form-group required">
+                <label class='control-label'>Phone Number</label>
+                @Html.TextBoxFor(model => model.PhoneNumber, new { @class = "form-control", id = "phone", type = "tel", required = "required", placeholder = "Enter Phone Number" })
+                <p id="phoneAlert" class="text-danger"></p>
+            </div>
+            <div class="form-group">
+                <label class='control-label'>Dish Name</label>
+                @Html.TextBoxFor(model => model.DishName, new { @class = "form-control", type = "text", required = "required", id = "dish", placeholder = "Enter Dish Name" })
+            </div>
+            <div id="dishname">
+                <p>Entry must meet the following requirements:</p>
+                <ul>
+                    <li id="length" class="text-danger">At least one letter</li>
+                    <li id="number" class="text-danger">Contains no numbers</li>
+                </ul>
+            </div>
+            <div class="form-group">
+                <label class='control-label'>Dish Description</label>
+                @Html.TextBoxFor(model => model.Description, new { @class = "form-control", type = "text", required = "required", id = "dishDescription", placeholder = "Enter Dish Description" })
+            </div>
+            <div id="description">
+                <p>Entry must meet the following requirements:</p>
+                <ul>
+                    <li id="dlength" class="text-danger">At least 10 letters</li>
+                    <li id="dnumber" class="text-danger">Contains no numbers</li>
+                </ul>
+            </div>
+            <div class="form-group">
+                <label class='control-label'>Please select a category for your dish:</label>
+                <p>
+                    @Html.RadioButtonFor(model => model.Category, "Gluten Free")
+                    Gluten Free
+                </p>
+                <p>
+                    @Html.RadioButtonFor(model => model.Category, "Vegan")
+                    Vegan
+                </p>
+                <p>
+                    @Html.RadioButtonFor(model => model.Category, "Vegetarian")
+                    Vegetarian
+                </p>
+                <p>
+                    @Html.RadioButtonFor(model => model.Category, "N/A")
+                    N/A
+                </p>
+            </div>
+        </fieldset>
+        <br />
+
+        <input type="submit" value="Submit Dish Info" class="btn btn-info btn-lg" id="dish_submit" />
+    }
+</div>
+
+
+
+<script type="text/javascript" src="~/Scripts/Dish.js"></script>
+
