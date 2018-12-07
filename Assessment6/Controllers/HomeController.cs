@@ -32,6 +32,14 @@ namespace Assessment6.Controllers
             return View(guest);
         }
 
+        public ActionResult Guests()
+        {
+            PartyDbEntities ORM = new PartyDbEntities();
+            ViewBag.GuestList = ORM.Guests.ToList();
+
+            return View();
+        }
+
         public ActionResult Dish()
         {
             PartyDbEntities ORM = new PartyDbEntities();
