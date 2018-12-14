@@ -5,7 +5,7 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="92737f58df7b4d74a7be0dd2d79f4ccb" Name="Diagram1">
-        <EntityTypeShape EntityType="PartyDbModel.Dish" Width="1.5" PointX="3" PointY="1" />
+        <EntityTypeShape EntityType="PartyDbModel.Dish" Width="1.5" PointX="3" PointY="1.25" />
         <EntityTypeShape EntityType="PartyDbModel.Guest" Width="1.5" PointX="0.75" PointY="1" />
         <AssociationConnector Association="PartyDbModel.FK_Dish_Guest1" />
       </Diagram>

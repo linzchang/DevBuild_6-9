@@ -19,15 +19,6 @@
             </div>
             <legend class="w-auto">Dish Details</legend>
             <div class="form-group">
-                <label class='control-label'>Guest Name</label>
-                @Html.TextBoxFor(model => model.GuestName, new { @class = "form-control", type = "text", required = "required", placeholder = "Enter Guest Name" })
-            </div>
-            <div class="form-group required">
-                <label class='control-label'>Phone Number</label>
-                @Html.TextBoxFor(model => model.PhoneNumber, new { @class = "form-control", id = "phone", type = "tel", required = "required", placeholder = "Enter Phone Number" })
-                <p id="phoneAlert" class="text-danger"></p>
-            </div>
-            <div class="form-group">
                 <label class='control-label'>Dish Name</label>
                 @Html.TextBoxFor(model => model.DishName, new { @class = "form-control", type = "text", required = "required", id = "dish", placeholder = "Enter Dish Name" })
             </div>
@@ -71,11 +62,11 @@
         </fieldset>
         <br />
 
-        <input type="submit" value="Submit Dish Info" class="btn btn-info btn-lg" id="dish_submit" />
+        <input type="submit" value="Submit" class="btn btn-info btn-lg" id="dish_submit" />
     }
 </div>
 
 
 
-<script type="text/javascript" src="~/Scripts/Dish.js"></script>
+@*<script type="text/javascript" src="~/Scripts/Dish.js"></script>*@
 

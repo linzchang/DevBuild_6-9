@@ -46,8 +46,6 @@ namespace Assessment6.Controllers
             oldDish.DishName = updatedDish.DishName;
             oldDish.Description = updatedDish.Description;
             oldDish.Category = updatedDish.Category;
-            oldDish.GuestName = updatedDish.GuestName;
-            oldDish.PhoneNumber = updatedDish.PhoneNumber;
 
             ORM.Entry(oldDish).State = EntityState.Modified;
             ORM.SaveChanges();
