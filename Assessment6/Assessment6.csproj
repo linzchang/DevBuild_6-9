@@ -287,9 +287,9 @@
     <Content Include="Views\Home\RSVP_Confirmation.cshtml" />
     <Content Include="Views\Dish\AddDish.cshtml" />
     <Content Include="Views\Dish\EditDish.cshtml" />
-    <Content Include="Views\Home\Guests.cshtml" />
     <Content Include="Views\Identity\Registration.cshtml" />
     <Content Include="Views\Identity\Login.cshtml" />
+    <Content Include="Views\Shared\_Menu.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

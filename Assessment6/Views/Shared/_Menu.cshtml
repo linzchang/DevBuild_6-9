@@ -1,0 +1,32 @@
+﻿@helper GetButtonVisibility(string controller, string action = null)
+{
+    if ((string)ViewContext.RouteData.Values["controller"] == controller &&
+         (action == null || (string)ViewContext.RouteData.Values["action"] == action))
+    {
+        <text>hidden</text>
+    }
+    else
+    {
+        <text>visible</text>
+    }
+}
+
+<div class="navbar">
+    @if (Request.IsAuthenticated)
+    {
+    <ul class="nav navbar-nav">
+        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+        <li style="visibility: @GetButtonVisibility("Identity")">@Html.ActionLink("RSVP to Party", "RSVP", "Home")</li>
+        <li style="visibility: @GetButtonVisibility("Identity")">@Html.ActionLink("View/Edit Your Dishes", "Dish", "Home")</li>
+        <li style="visibility: @GetButtonVisibility("Identity")">@Html.ActionLink("Logout", "Logout", "Identity")</li>
+    </ul>
+    }
+    else
+    {
+        <ul class="nav navbar-nav">
+            <li>@Html.ActionLink("Home", "Index", "Home")</li>
+            <li>@Html.ActionLink("Register New Guest", "Registration", "Identity")</li>
+            <li>@Html.ActionLink("Login", "Login", "Identity")</li>
+        </ul>
+    }
+</div>
