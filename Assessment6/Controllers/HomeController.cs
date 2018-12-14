@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Data.Entity;
 
 namespace Assessment6.Controllers
 {
@@ -23,29 +24,32 @@ namespace Assessment6.Controllers
 
         public ActionResult RSVP_Confirmation(Guest guest)
         {
+            string userEmail = User.Identity.Name;
+            
             PartyDbEntities ORM = new PartyDbEntities();
+            Guest found = ORM.Guests.Find(userEmail);
 
-            if (guest.FirstName != null)
+            if (guest.Attending != null)
             {
-                ORM.Guests.Add(guest);
+                found.Attending = guest.Attending;
+                found.PartyDate = guest.PartyDate;
+                found.PlusOne = guest.PlusOne;
+                found.PlusOneName = guest.PlusOneName;
+
+                ORM.Entry(found).State = EntityState.Modified;
                 ORM.SaveChanges();
+                return View(guest);
             }
 
             return View(guest);
         }
 
-        public ActionResult Guests()
-        {
-            PartyDbEntities ORM = new PartyDbEntities();
-            ViewBag.GuestList = ORM.Guests.ToList();
-
-            return View();
-        }
-
         public ActionResult Dish()
         {
+            string userEmail = User.Identity.Name;
+
             PartyDbEntities ORM = new PartyDbEntities();
-            ViewBag.DishList = ORM.Dishes.ToList();
+            ViewBag.DishList = ORM.Dishes.Where(x => x.Email == userEmail).ToList();
 
             return View();
         }

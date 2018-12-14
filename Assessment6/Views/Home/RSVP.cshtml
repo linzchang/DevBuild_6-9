@@ -18,33 +18,7 @@
             <div class="form-group">
                 @Html.TextBoxFor(model => model.GuestID, new { @class = "form-control", type = "hidden" })
             </div>
-            <legend class="w-auto">Details</legend>
-            <div class="form-group">
-                <label class='control-label'>First Name</label>
-                @Html.TextBoxFor(model => model.FirstName, new { @class = "form-control", type = "text", required = "required", id = "firstName", placeholder = "Enter First Name" })
-            </div>
-            <div id="first">
-                <p>Entry must meet the following requirements:</p>
-                <ul>
-                    <li id="length" class="text-danger">At least one letter</li>
-                    <li id="number" class="text-danger">Contains no numbers</li>
-                </ul>
-            </div>
-            <div class="form-group">
-                <label class='control-label'>Last Name</label>
-                @Html.TextBoxFor(model => model.LastName, new { @class = "form-control", type = "text", required = "required", id = "lastName", placeholder = "Enter Last Name" })
-            </div>
-            <div id="last">
-                <p>Entry must meet the following requirements:</p>
-                <ul>
-                    <li id="lastlength" class="text-danger">At least one letter</li>
-                    <li id="lastnumber" class="text-danger">Contains no numbers</li>
-                </ul>
-            </div>
-            <div class="form-group">
-                <label class='control-label'>Email</label>
-                @Html.TextBoxFor(model => model.Email, new { @class = "form-control", type = "email", required = "required", placeholder = "Enter Email" })
-            </div>
+            <legend class="w-auto">RSVP Details</legend>
             <div class="form-group">
                 <label class='control-label'>Will you be attending?</label>
                 <p>

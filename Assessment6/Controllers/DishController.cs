@@ -8,9 +8,9 @@ using System.Web.Mvc;
 
 namespace Assessment6.Controllers
 {
+    [Authorize]
     public class DishController : Controller
     {
-        // GET: Dish
         public ActionResult AddDish()
         {
             return View();
@@ -18,6 +18,8 @@ namespace Assessment6.Controllers
 
         public ActionResult SaveNewDish(Dish newDish)
         {
+            string userEmail = User.Identity.Name;
+            newDish.Email = userEmail;
             PartyDbEntities ORM = new PartyDbEntities();
 
             if (newDish != null)

@@ -30,6 +30,7 @@ namespace Assessment6.Controllers
                 IdentityUser user = new IdentityUser()
                 {
                     Email = newUser.Email,
+                    UserName = newUser.Email
                 };
 
                 var IdentityResult = await userManager.CreateAsync(user, newUser.Password);
@@ -40,6 +41,7 @@ namespace Assessment6.Controllers
                     {
                         FirstName = newUser.FirstName,
                         LastName = newUser.LastName,
+                        Email = newUser.Email
                     };
 
                     ORM.Guests.Add(addGuest);
