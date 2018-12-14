@@ -289,11 +289,12 @@
     <Content Include="Views\Dish\AddDish.cshtml" />
     <Content Include="Views\Dish\EditDish.cshtml" />
     <Content Include="Views\Home\Guests.cshtml" />
+    <Content Include="Views\Identity\Registration.cshtml" />
+    <Content Include="Views\Identity\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\Guest\" />
-    <Folder Include="Views\Identity\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

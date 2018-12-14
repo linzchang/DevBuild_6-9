@@ -17,12 +17,5 @@ namespace Assessment6.Models
         public string Email { get; set; }
         [Required]
         public string Password { get; set; }
-        [Required]
-        public string Attending { get; set; }
-
-        //Optional: (depends on whether or not they're attending party)
-        public string PartyDate { get; set; }
-        public string PlusOne { get; set; }
-        public string PlusOneName { get; set; }
     }
 }

@@ -7,8 +7,10 @@ using System.Web.Mvc;
 
 namespace Assessment6.Controllers
 {
+    [Authorize]
     public class HomeController : Controller
     {
+        [AllowAnonymous]
         public ActionResult Index()
         {
             return View();

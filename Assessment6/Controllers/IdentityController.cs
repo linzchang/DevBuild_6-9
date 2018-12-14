@@ -40,10 +40,6 @@ namespace Assessment6.Controllers
                     {
                         FirstName = newUser.FirstName,
                         LastName = newUser.LastName,
-                        Attending = newUser.Attending,
-                        PartyDate = newUser.PartyDate,
-                        PlusOne = newUser.PlusOne,
-                        PlusOneName = newUser.PlusOneName
                     };
 
                     ORM.Guests.Add(addGuest);
