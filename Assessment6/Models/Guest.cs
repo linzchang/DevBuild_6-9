@@ -14,6 +14,12 @@ namespace Assessment6.Models
     
     public partial class Guest
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Guest()
+        {
+            this.Dishes = new HashSet<Dish>();
+        }
+    
         public int GuestID { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
@@ -22,5 +28,8 @@ namespace Assessment6.Models
         public string PartyDate { get; set; }
         public string PlusOne { get; set; }
         public string PlusOneName { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Dish> Dishes { get; set; }
     }
 }

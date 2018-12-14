@@ -20,5 +20,8 @@ namespace Assessment6.Models
         public string DishName { get; set; }
         public string Description { get; set; }
         public string Category { get; set; }
+        public Nullable<int> GuestID { get; set; }
+    
+        public virtual Guest Guest { get; set; }
     }
 }

@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model '\\mi\dfs\Users\LChang\Desktop\Assessments\Assessment 6\LC_PutMeOnTheList\Assessment6\Models\PartyDb.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\Users\lchang\source\repos\LC_PutMeOnTheList\Assessment6\Models\PartyDb.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.
