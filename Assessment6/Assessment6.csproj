@@ -189,6 +189,7 @@
       <DependentUpon>PartyDb.edmx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="bin\Antlr3.Runtime.dll" />
