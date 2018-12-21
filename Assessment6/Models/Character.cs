@@ -16,7 +16,6 @@ namespace Assessment6.Models
     {
         public int CharacterID { get; set; }
         public string Name { get; set; }
-        public string House { get; set; }
         public string Allegiance { get; set; }
         public string Book { get; set; }
         public string Email { get; set; }

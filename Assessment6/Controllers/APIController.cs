@@ -27,11 +27,11 @@ namespace Assessment6.Controllers
                 StreamReader data = new StreamReader(response.GetResponseStream());
                 ViewBag.RawData = data.ReadToEnd();
             }
-            var characters = GetNames("Petyr Baelish");
+            var characters = GetCharacterList();
             return View(characters);
         }
 
-        public List<APICharacter> GetNames(string name)
+        public string GetName(string name)
         {
             var characters = new List<APICharacter>();
 
@@ -45,10 +45,6 @@ namespace Assessment6.Controllers
 
                 var serializer = new JsonSerializer();
 
-                //JObject dataObject = JObject.Parse(data.ReadToEnd());
-                //var petyr = new APICharacter();
-                //petyr.Name = dataObject["name"];
-
                 using (StreamReader data = new StreamReader(response.GetResponseStream()))
                 using (var jsonReader = new JsonTextReader(data))
                 {
@@ -56,6 +52,58 @@ namespace Assessment6.Controllers
                 }
 
             }
+
+            return characters[0].Name;
+        }
+
+        //public string GetAllegiance(string allegiance)
+        //{
+        //    var characters = new List<APICharacter>();
+
+        //    HttpWebRequest request = WebRequest.CreateHttp($"https://www.anapioficeandfire.com/api/houses/{allegiance}");
+        //    request.UserAgent = UserAgent;
+
+        //    HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+
+        //    if (response.StatusCode == HttpStatusCode.OK)
+        //    {
+
+        //        var serializer = new JsonSerializer();
+
+        //        using (StreamReader data = new StreamReader(response.GetResponseStream()))
+        //        using (var jsonReader = new JsonTextReader(data))
+        //        {
+        //            characters = serializer.Deserialize<List<APICharacter>>(jsonReader);
+        //        }
+
+        //    }
+
+        //    return characters[0].Name;
+        //}
+
+        public List<APICharacter> GetCharacterList()
+        {
+            var characters = new List<APICharacter>();
+
+            var petyr = new APICharacter();
+            var jon = new APICharacter();
+            var sansa = new APICharacter();
+            var brienne = new APICharacter();
+            var danny = new APICharacter();
+
+            petyr.Name = GetName("Petyr Baelish");
+            sansa.Name = GetName("Sansa Stark");
+            jon.Name = GetName("Jon Snow");
+            brienne.Name = GetName("Brienne of Tarth");
+            danny.Name = GetName("Daenerys Targaryen");
+
+            //brienne.Allegiance = GetAllegiance("17");
+
+            characters.Add(petyr);
+            characters.Add(sansa);
+            characters.Add(jon);
+            characters.Add(brienne);
+            characters.Add(danny);
 
             return characters;
         }

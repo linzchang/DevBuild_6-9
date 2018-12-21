@@ -9,9 +9,8 @@
           <Key>
             <PropertyRef Name="CharacterID" />
           </Key>
-          <Property Name="CharacterID" Type="int" Nullable="false" />
+          <Property Name="CharacterID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="50" />
-          <Property Name="House" Type="nvarchar" MaxLength="50" />
           <Property Name="Allegiance" Type="nvarchar" MaxLength="50" />
           <Property Name="Book" Type="nvarchar" MaxLength="50" />
           <Property Name="Email" Type="nvarchar" MaxLength="50" />
@@ -97,9 +96,8 @@
           <Key>
             <PropertyRef Name="CharacterID" />
           </Key>
-          <Property Name="CharacterID" Type="Int32" Nullable="false" />
+          <Property Name="CharacterID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="House" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Allegiance" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Book" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
@@ -167,7 +165,6 @@
                 <ScalarProperty Name="Email" ColumnName="Email" />
                 <ScalarProperty Name="Book" ColumnName="Book" />
                 <ScalarProperty Name="Allegiance" ColumnName="Allegiance" />
-                <ScalarProperty Name="House" ColumnName="House" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="CharacterID" ColumnName="CharacterID" />
               </MappingFragment>

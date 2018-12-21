@@ -8,7 +8,6 @@ namespace Assessment6.Models
     public class APICharacter
     {
         public string Name { get; set; }
-        public string House { get; set; }
         public string Allegiance { get; set; }
         public string Book { get; set; }
     }
