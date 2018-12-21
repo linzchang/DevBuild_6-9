@@ -92,11 +92,11 @@ namespace Assessment6.Controllers
             brienne.Name = GetName("Brienne of Tarth");
             danny.Name = GetName("Daenerys Targaryen");
 
-            jon.Allegiance = GetAllegiance("362");
-            sansa.Allegiance = GetAllegiance("362");
-            danny.Allegiance = GetAllegiance("378");
-            petyr.Allegiance = GetAllegiance("10");
-            brienne.Allegiance = GetAllegiance("17");
+            //jon.Allegiance = GetAllegiance("362");
+            //sansa.Allegiance = GetAllegiance("362");
+            //danny.Allegiance = GetAllegiance("378");
+            //petyr.Allegiance = GetAllegiance("10");
+            //brienne.Allegiance = GetAllegiance("17");
 
             characters.Add(petyr);
             characters.Add(sansa);

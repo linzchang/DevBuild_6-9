@@ -1,0 +1,12 @@
+﻿@model IEnumerable<Assessment6.Models.Character>
+
+<h2>Hello @User.Identity.Name</h2>
+
+<p>Info for your Favorite Game of Thrones Character:</p>
+
+@foreach (var character in Model)
+{
+    <p>Name: @character.Name</p>
+    <p>Allegiance: @character.Allegiance</p>
+    <p>Book: @character.Book</p>
+}

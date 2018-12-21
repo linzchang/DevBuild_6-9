@@ -17,5 +17,7 @@ namespace Assessment6.Models
         public string Email { get; set; }
         [Required]
         public string Password { get; set; }
+        [Required]
+        public string Character { get; set; }
     }
 }

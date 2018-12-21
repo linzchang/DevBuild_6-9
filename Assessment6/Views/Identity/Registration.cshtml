@@ -14,39 +14,49 @@
         @Html.AntiForgeryToken();
         @Html.ValidationSummary(false, "", new { @class = "text-danger" })
 
-        <fieldset class="mt-4">
-            <legend class="w-auto">Details</legend>
-            <div class="form-group">
-                <label class='control-label'>First Name</label>
-                @Html.TextBoxFor(model => model.FirstName, new { @class = "form-control", type = "text", required = "required", id = "firstName", placeholder = "Enter First Name" })
-            </div>
-            <div id="first">
-                <p>Entry must meet the following requirements:</p>
-                <ul>
-                    <li id="length" class="text-danger">At least one letter</li>
-                    <li id="number" class="text-danger">Contains no numbers</li>
-                </ul>
-            </div>
-            <div class="form-group">
-                <label class='control-label'>Last Name</label>
-                @Html.TextBoxFor(model => model.LastName, new { @class = "form-control", required = "required", id = "lastName", placeholder = "Enter Last Name" })
-            </div>
-            <div id="last">
-                <p>Entry must meet the following requirements:</p>
-                <ul>
-                    <li id="lastlength" class="text-danger">At least one letter</li>
-                    <li id="lastnumber" class="text-danger">Contains no numbers</li>
-                </ul>
-            </div>
-            <div class="form-group">
-                <label class='control-label'>Email</label>
-                @Html.TextBoxFor(model => model.Email, new { @class = "form-control", type = "email", required = "required", placeholder = "Enter Email" })
-            </div>
-            <div class="form-group">
-                <label class="control-label">Password</label>
-                @Html.PasswordFor(model => model.Password, new { @class = "form-control", required = "required", placeholder = "Create Password" })
-            </div>
-        </fieldset>
+    <fieldset class="mt-4">
+        <legend class="w-auto">Details</legend>
+        <div class="form-group">
+            <label class='control-label'>First Name</label>
+            @Html.TextBoxFor(model => model.FirstName, new { @class = "form-control", type = "text", required = "required", id = "firstName", placeholder = "Enter First Name" })
+        </div>
+        <div id="first">
+            <p>Entry must meet the following requirements:</p>
+            <ul>
+                <li id="length" class="text-danger">At least one letter</li>
+                <li id="number" class="text-danger">Contains no numbers</li>
+            </ul>
+        </div>
+        <div class="form-group">
+            <label class='control-label'>Last Name</label>
+            @Html.TextBoxFor(model => model.LastName, new { @class = "form-control", required = "required", id = "lastName", placeholder = "Enter Last Name" })
+        </div>
+        <div id="last">
+            <p>Entry must meet the following requirements:</p>
+            <ul>
+                <li id="lastlength" class="text-danger">At least one letter</li>
+                <li id="lastnumber" class="text-danger">Contains no numbers</li>
+            </ul>
+        </div>
+        <div class="form-group">
+            <label class='control-label'>Email</label>
+            @Html.TextBoxFor(model => model.Email, new { @class = "form-control", type = "email", required = "required", placeholder = "Enter Email" })
+        </div>
+        <div class="form-group">
+            <label class="control-label">Password</label>
+            @Html.PasswordFor(model => model.Password, new { @class = "form-control", required = "required", placeholder = "Create Password" })
+        </div>
+        <div class="form-group mt-2">
+            <label>Favorite Game of Throne Character</label>
+            @Html.DropDownListFor(model => model.Character, new List<SelectListItem>
+                { new SelectListItem{Text="Jon Snow", Value="Jon Snow"},
+                  new SelectListItem{Text="Daenerys Targaryen", Value="Daenerys Targaryen"},
+                  new SelectListItem{Text="Sansa Stark", Value="Sansa Stark"},
+                  new SelectListItem{Text="Petyr Baelish", Value="Petyr Baelish"},
+                  new SelectListItem{Text="Brienne of Tarth", Value="Brienne of Tarth"}},
+                "Please select", new { @class = "form-control"})
+        </div>
+    </fieldset>
         <br />
 
         <input type="submit" value="RSVP" class="btn btn-info btn-lg" id="RSVP_submit" />

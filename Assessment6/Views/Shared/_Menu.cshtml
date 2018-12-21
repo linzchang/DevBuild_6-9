@@ -18,6 +18,7 @@
         <li>@Html.ActionLink("Home", "Index", "Home")</li>
         <li style="visibility: @GetButtonVisibility("Identity")">@Html.ActionLink("RSVP to Party", "RSVP", "Home")</li>
         <li style="visibility: @GetButtonVisibility("Identity")">@Html.ActionLink("View/Edit Your Dishes", "Dish", "Home")</li>
+        <li style="visibility: @GetButtonVisibility("Identity")">@Html.ActionLink("View Your Profile", "ViewProfile", "Identity")</li>
         <li style="visibility: @GetButtonVisibility("Identity")">@Html.ActionLink("Logout", "Logout", "Identity")</li>
     </ul>
     }
