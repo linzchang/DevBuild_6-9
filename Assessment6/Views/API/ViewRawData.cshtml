@@ -1,0 +1,26 @@
+﻿@model IEnumerable<Assessment6.Models.APICharacter>
+
+<p>@ViewBag.RawData</p>
+
+<br />
+<br />
+
+<table class="table">
+
+    <tr>
+        <th>Name</th>
+        <th>House</th>
+        <th>Allegiance</th>
+        <th>Book</th>
+    </tr>
+    @foreach (var character in Model)
+    {
+        <tr>
+            <td>@character.Name</td>
+            <td>@character.House</td>
+            <td>@character.Allegiance</td>
+            <td>@character.Book</td>
+        </tr>
+    }
+</table>
+

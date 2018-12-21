@@ -17,6 +17,7 @@ namespace Assessment6.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Guest()
         {
+            this.Characters = new HashSet<Character>();
             this.Dishes = new HashSet<Dish>();
         }
     
@@ -29,6 +30,8 @@ namespace Assessment6.Models
         public string PlusOne { get; set; }
         public string PlusOneName { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Character> Characters { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Dish> Dishes { get; set; }
     }
