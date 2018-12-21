@@ -56,30 +56,25 @@ namespace Assessment6.Controllers
             return characters[0].Name;
         }
 
-        //public string GetAllegiance(string allegiance)
-        //{
-        //    var characters = new List<APICharacter>();
+        public string GetAllegiance(string allegiance)
+        {
+            string houseName = "";
 
-        //    HttpWebRequest request = WebRequest.CreateHttp($"https://www.anapioficeandfire.com/api/houses/{allegiance}");
-        //    request.UserAgent = UserAgent;
+            HttpWebRequest request = WebRequest.CreateHttp($"https://www.anapioficeandfire.com/api/houses/{allegiance}");
+            request.UserAgent = UserAgent;
 
-        //    HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+            HttpWebResponse response = (HttpWebResponse)request.GetResponse();
 
-        //    if (response.StatusCode == HttpStatusCode.OK)
-        //    {
+            if (response.StatusCode == HttpStatusCode.OK)
+            {
+                StreamReader data = new StreamReader(response.GetResponseStream());
+                string JsonData = data.ReadToEnd();
+                JObject allegianceData = JObject.Parse(JsonData);
+                houseName = (string)allegianceData.SelectToken("name");
+            }
 
-        //        var serializer = new JsonSerializer();
-
-        //        using (StreamReader data = new StreamReader(response.GetResponseStream()))
-        //        using (var jsonReader = new JsonTextReader(data))
-        //        {
-        //            characters = serializer.Deserialize<List<APICharacter>>(jsonReader);
-        //        }
-
-        //    }
-
-        //    return characters[0].Name;
-        //}
+            return houseName;
+        }
 
         public List<APICharacter> GetCharacterList()
         {
@@ -97,7 +92,11 @@ namespace Assessment6.Controllers
             brienne.Name = GetName("Brienne of Tarth");
             danny.Name = GetName("Daenerys Targaryen");
 
-            //brienne.Allegiance = GetAllegiance("17");
+            jon.Allegiance = GetAllegiance("362");
+            sansa.Allegiance = GetAllegiance("362");
+            danny.Allegiance = GetAllegiance("378");
+            petyr.Allegiance = GetAllegiance("10");
+            brienne.Allegiance = GetAllegiance("17");
 
             characters.Add(petyr);
             characters.Add(sansa);
